@@ -24,17 +24,20 @@ jobs:
       - name: Build Project
         run: npm run build
 
-      - name: Copy Files to VPS
+      - name: Zip Build Folder
+        run: zip -r dist.zip dist/
+
+      - name: Copy Zip to VPS
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
           port: ${{ secrets.VPS_PORT }}
-          source: "./dist/*"
-          target: "/var/www/stt.vpsiqbal.my.id/dist/"
+          source: "dist.zip"
+          target: "/var/www/stt.vpsiqbal.my.id/"
 
-      - name: Restart Application on VPS
+      - name: Extract Files on VPS
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -43,5 +46,5 @@ jobs:
           port: ${{ secrets.VPS_PORT }}
           script: |
             cd /var/www/stt.vpsiqbal.my.id
-            npm install
-            pm2 restart stt.vpsiqbal.my.id || pm2 start npm --name "stt.vpsiqbal.my.id" -- run preview
+            unzip -o dist.zip -d dist
+
