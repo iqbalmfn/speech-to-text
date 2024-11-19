@@ -30,8 +30,8 @@ jobs:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           password: ${{ secrets.VPS_PASSWORD }}
-          source: "./build/*"
-          target: "/var/www/stt.vpsiqbal.my.id/build/"
+          source: "./dist/*"
+          target: "/var/www/stt.vpsiqbal.my.id/dist/"
 
       - name: Restart Application on VPS
         uses: appleboy/ssh-action@master
