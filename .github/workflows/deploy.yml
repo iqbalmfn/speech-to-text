@@ -44,3 +44,4 @@ jobs:
           script: |
             cd /var/www/stt.vpsiqbal.my.id
             npm install
+            pm2 restart stt.vpsiqbal.my.id || pm2 start npm --name "stt.vpsiqbal.my.id" -- run preview
