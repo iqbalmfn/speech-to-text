@@ -35,7 +35,7 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           port: ${{ secrets.VPS_PORT }}
           source: "dist/**/*"
-          target: "/var/www/stt.vpsiqbal.my.id/dist/"
+          target: "/var/www/stt.vpsiqbal.my.id/"
           recursive: true
           debug: true
 
