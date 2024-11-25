@@ -27,9 +27,6 @@ jobs:
       - name: Check Build Folder
         run: ls -la ./dist
 
-      - name: Verify Build Output
-         run: ls -R dist
-
       - name: Copy File to VPS
         uses: appleboy/scp-action@master
         with:
