@@ -48,7 +48,7 @@ const SpeechToText = () => {
 
   return (
     <div>
-      <h2>Speech to Text Euy Tea Ah</h2>
+      <h2>Speech to Text Euy Tea Ah Mantap Jiwa</h2>
       <button onClick={isListening ? handleStop : handleStart}>
         {isListening ? "Stop" : "Start"}
       </button>
