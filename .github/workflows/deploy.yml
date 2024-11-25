@@ -38,3 +38,6 @@ jobs:
           target: "/var/www/stt.vpsiqbal.my.id/dist/"
           recursive: true
           debug: true
+
+      - name: Verify Build Output
+         run: ls -R ./dist
